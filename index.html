@@ -1,0 +1,297 @@
+/* ===========================
+   Glass Glow
+=========================== */
+
+.hero::after{
+content:"";
+position:absolute;
+width:500px;
+height:500px;
+background:radial-gradient(circle,#ff00cc55,transparent 70%);
+filter:blur(60px);
+animation:heroGlow 8s ease-in-out infinite;
+z-index:-1;
+}
+
+@keyframes heroGlow{
+
+0%,100%{
+transform:scale(1) rotate(0deg);
+opacity:.5;
+}
+
+50%{
+transform:scale(1.3) rotate(180deg);
+opacity:.9;
+}
+
+}
+
+/* Floating Photo Animation */
+
+.photo{
+
+animation:
+floatPhoto 10s ease-in-out infinite,
+glowPhoto 4s ease-in-out infinite;
+
+transition:.5s;
+
+cursor:pointer;
+
+}
+
+.photo:hover{
+
+transform:scale(1.08);
+box-shadow:
+0 0 20px #ff00cc,
+0 0 50px #a000ff,
+0 0 90px #ff66ff;
+
+}
+
+@keyframes floatPhoto{
+
+0%{
+transform:translateY(0px) rotate(-3deg);
+}
+
+25%{
+transform:translateY(-20px) rotate(3deg);
+}
+
+50%{
+transform:translateY(15px) rotate(-2deg);
+}
+
+75%{
+transform:translateY(-12px) rotate(2deg);
+}
+
+100%{
+transform:translateY(0px) rotate(-3deg);
+}
+
+}
+
+@keyframes glowPhoto{
+
+0%,100%{
+filter:
+drop-shadow(0 0 12px #ff00cc);
+}
+
+50%{
+filter:
+drop-shadow(0 0 35px #9900ff);
+}
+
+}
+
+/* Floating Particles */
+
+.particle{
+
+position:fixed;
+width:5px;
+height:5px;
+border-radius:50%;
+
+background:white;
+
+opacity:.4;
+
+pointer-events:none;
+
+animation:particleMove linear infinite;
+
+}
+
+@keyframes particleMove{
+
+from{
+
+transform:
+translateY(120vh)
+scale(.3);
+
+}
+
+to{
+
+transform:
+translateY(-120vh)
+scale(1.2);
+
+}
+
+}
+
+/* Timeline */
+
+.timeline{
+
+display:flex;
+
+flex-direction:column;
+
+gap:60px;
+
+}
+
+.memory{
+
+transition:.5s;
+
+border:1px solid rgba(255,255,255,.08);
+
+box-shadow:
+
+0 0 40px rgba(255,0,180,.15);
+
+}
+
+.memory:hover{
+
+transform:translateY(-10px);
+
+box-shadow:
+
+0 0 25px #ff00cc,
+
+0 0 80px rgba(180,0,255,.45);
+
+}
+
+/* Scroll Fade */
+
+.fade{
+
+opacity:0;
+
+transform:translateY(60px);
+
+transition:1.2s;
+
+}
+
+.fade.show{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+/* Glass Overlay */
+
+.glass{
+
+position:fixed;
+
+top:0;
+
+left:0;
+
+width:100%;
+
+height:100%;
+
+pointer-events:none;
+
+backdrop-filter:blur(2px);
+
+background:
+
+linear-gradient(
+
+180deg,
+
+rgba(255,255,255,.02),
+
+rgba(255,255,255,0)
+
+);
+
+z-index:-1;
+
+}
+
+/* Neon Button */
+
+.button{
+
+padding:15px 35px;
+
+margin-top:35px;
+
+border-radius:50px;
+
+border:none;
+
+font-size:18px;
+
+background:
+
+linear-gradient(45deg,#ff00cc,#7a00ff);
+
+color:white;
+
+cursor:pointer;
+
+transition:.4s;
+
+box-shadow:
+
+0 0 30px rgba(255,0,255,.45);
+
+}
+
+.button:hover{
+
+transform:scale(1.08);
+
+box-shadow:
+
+0 0 60px #ff00cc;
+
+}
+
+/* Mobile */
+
+@media(max-width:768px){
+
+.hero h1{
+
+font-size:38px;
+
+}
+
+.hero p{
+
+font-size:16px;
+
+}
+
+.photo{
+
+width:150px;
+
+height:210px;
+
+}
+
+audio{
+
+width:170px;
+
+}
+
+.memory{
+
+padding:20px;
+
+}
+
+}
