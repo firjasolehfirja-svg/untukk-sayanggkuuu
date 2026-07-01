@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Memories ❤️</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+background:#050505;
+overflow-x:hidden;
+color:white;
+}
+
+/* Loading Screen */
+
+#loading{
+position:fixed;
+width:100%;
+height:100%;
+background:#050505;
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+z-index:99999;
+}
+
+.heart{
+font-size:70px;
+color:#ff4fd8;
+animation:pulse 1.2s infinite;
+filter:drop-shadow(0 0 30px #ff00cc);
+}
+
+.loading-text{
+margin-top:20px;
+letter-spacing:5px;
+font-size:20px;
+color:white;
+}
+
+.progress{
+margin-top:25px;
+width:300px;
+height:8px;
+border-radius:30px;
+overflow:hidden;
+background:#222;
+}
+
+.bar{
+width:0%;
+height:100%;
+background:linear-gradient(90deg,#ff00cc,#8f00ff);
+animation:loading 4s forwards;
+}
+
+@keyframes loading{
+100%{width:100%;}
+}
+
+@keyframes pulse{
+
+0%,100%{
+transform:scale(1);
+}
+
+50%{
+transform:scale(1.2);
+}
+
+}
+
+/* Background */
+
+body::before{
+
+content:'';
+position:fixed;
+width:100%;
+height:100%;
+background:
+radial-gradient(circle at center,
+rgba(255,0,170,.12),
+transparent 60%);
+pointer-events:none;
+z-index:-3;
+
+}
+
+/* Romantic Text */
+
+.words{
+position:fixed;
+width:100%;
+height:100%;
+overflow:hidden;
+z-index:-2;
+}
+
+.word{
+
+position:absolute;
+color:white;
+opacity:.15;
+font-size:18px;
+animation:floatWord linear infinite;
+
+}
+
+@keyframes floatWord{
+
+from{
+transform:translateY(120vh);
+}
+
+to{
+transform:translateY(-120vh);
+}
+
+}
+
+/* Hero */
+
+.hero{
+
+min-height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+text-align:center;
+padding:30px;
+
+}
+
+.hero h1{
+
+font-size:55px;
+color:white;
+text-shadow:
+0 0 15px #ff00cc,
+0 0 40px #9900ff;
+
+}
+
+.hero p{
+
+margin-top:15px;
+font-size:18px;
+opacity:.8;
+
+}
+
+/* Floating Photos */
+
+.gallery{
+
+position:relative;
+height:130vh;
+overflow:hidden;
+
+}
+
+.photo{
+
+position:absolute;
+width:220px;
+height:300px;
+border-radius:25px;
+overflow:hidden;
+background:rgba(255,255,255,.08);
+backdrop-filter:blur(20px);
+border:1px solid rgba(255,255,255,.15);
+box-shadow:
+0 0 40px rgba(255,0,200,.3);
+
+}
+
+.photo img{
+
+width:100%;
+height:100%;
+object-fit:cover;
+
+}
+
+/* Timeline */
+
+.timeline{
+
+padding:100px 25px;
+
+}
+
+.memory{
+
+margin:60px auto;
+max-width:700px;
+padding:30px;
+border-radius:25px;
+background:rgba(255,255,255,.05);
+backdrop-filter:blur(20px);
+
+}
+
+.memory h2{
+
+color:#ff6ef7;
+
+}
+
+.memory p{
+
+margin-top:10px;
+line-height:1.7;
+
+}
+
+.music{
+
+position:fixed;
+bottom:20px;
+right:20px;
+z-index:999;
+
+}
+
+audio{
+
+width:230px;
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div id="loading">
+
+<div class="heart">❤️</div>
+
+<div class="loading-text">
+LOADING MEMORIES
+</div>
+
+<div class="progress">
+<div class="bar"></div>
+</div>
+
+</div>
+
+<div class="words" id="words"></div>
+
+<section class="hero">
+
+<h1>Our Beautiful Memories</h1>
+
+<p>
+Every moment with you became my favorite memory.
+</p>
+
+</section>
+
+<section class="gallery">
+
+<!-- Your 5 photos will be inserted here in Part 4 -->
+
+</section>
+
+<section class="timeline">
+
+<div class="memory">
+<h2>How It All Started ❤️</h2>
+<p>
+Every beautiful story begins with a simple moment. Since then, every smile, every laugh, and every memory has become something worth keeping forever.
+</p>
+</div>
+
+<div class="memory">
+<h2>Forever Together ✨</h2>
+<p>
+No matter how much time passes, these memories will always glow just like the stars in the night sky.
+</p>
+</div>
+
+</section>
+
+<div class="music">
+
+<audio controls autoplay loop>
+
+<source src="music.mp3" type="audio/mpeg">
+
+</audio>
+
+</div>
