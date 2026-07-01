@@ -1,0 +1,182 @@
+<script>
+// Romantic phrases
+const phrases = [
+"stay with me",
+"forever",
+"only you",
+"you mean everything",
+"my favorite person",
+"i miss you",
+"always with you",
+"love forever",
+"my happiness",
+"our story",
+"endless love",
+"every heartbeat",
+"my home",
+"you're enough",
+"my sunshine",
+"you & me",
+"together forever",
+"always yours"
+];
+
+// Generate floating words
+const words = document.getElementById("words");
+
+for(let i=0;i<180;i++){
+
+const span=document.createElement("span");
+
+span.className="word";
+
+span.innerHTML=phrases[Math.floor(Math.random()*phrphrases?.length||phrases.length)];
+// Fallback for typo-safe assignment
+span.innerHTML=phrases[Math.floor(Math.random()*phrases.length)];
+
+span.style.left=Math.random()*100+"vw";
+
+span.style.top=Math.random()*100+"vh";
+
+span.style.animationDuration=
+10+Math.random()*18+"s";
+
+span.style.animationDelay=
+Math.random()*10+"s";
+
+span.style.opacity=
+0.08+Math.random()*0.22;
+
+span.style.fontSize=
+12+Math.random()*18+"px";
+
+words.appendChild(span);
+
+}
+
+// Floating particles
+for(let i=0;i<120;i++){
+
+const p=document.createElement("div");
+
+p.className="particle";
+
+p.style.left=Math.random()*100+"vw";
+
+p.style.top=Math.random()*100+"vh";
+
+p.style.animationDuration=
+8+Math.random()*12+"s";
+
+p.style.animationDelay=
+Math.random()*8+"s";
+
+document.body.appendChild(p);
+
+}
+
+// Loading screen
+window.addEventListener("load",()=>{
+
+setTimeout(()=>{
+
+const loading=document.getElementById("loading");
+
+loading.style.transition="1.2s";
+
+loading.style.opacity="0";
+
+setTimeout(()=>{
+
+loading.remove();
+
+},1200);
+
+},4000);
+
+});
+
+// Scroll fade animation
+const observer=new IntersectionObserver(entries=>{
+
+entries.forEach(entry=>{
+
+if(entry.isIntersecting){
+
+entry.target.classList.add("show");
+
+}
+
+});
+
+},{threshold:.2});
+
+document.querySelectorAll(".memory").forEach(card=>{
+
+card.classList.add("fade");
+
+observer.observe(card);
+
+});
+
+// Mouse parallax
+document.addEventListener("mousemove",(e)=>{
+
+const x=(e.clientX-window.innerWidth/2)/35;
+
+const y=(e.clientY-window.innerHeight/2)/35;
+
+document.querySelectorAll(".photo").forEach((img,index)=>{
+
+img.style.transform=
+`translate(${x*(index+1)*0.25}px,
+${y*(index+1)*0.25}px)`;
+
+});
+
+});
+
+// Touch parallax
+document.addEventListener("touchmove",(e)=>{
+
+const touch=e.touches[0];
+
+const x=(touch.clientX-window.innerWidth/2)/40;
+
+const y=(touch.clientY-window.innerHeight/2)/40;
+
+document.querySelectorAll(".photo").forEach((img,index)=>{
+
+img.style.transform=
+`translate(${x*(index+1)*0.2}px,
+${y*(index+1)*0.2}px)`;
+
+});
+
+},{passive:true});
+
+// Random floating positions
+const photos=document.querySelectorAll(".photo");
+
+photos.forEach(photo=>{
+
+photo.style.left=Math.random()*75+"vw";
+
+photo.style.top=Math.random()*85+"vh";
+
+});
+
+// Gentle movement every few seconds
+setInterval(()=>{
+
+photos.forEach(photo=>{
+
+photo.style.left=Math.random()*75+"vw";
+
+photo.style.top=Math.random()*85+"vh";
+
+});
+
+},9000);
+
+  </script>
